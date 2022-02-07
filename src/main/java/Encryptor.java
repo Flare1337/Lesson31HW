@@ -1,10 +1,6 @@
 import java.util.ArrayList;
 
 public class Encryptor {
-    public static void main(String[] args) {
-        String s = Encryptor.encryptText("d");
-        System.out.println(s);
-    }
 
     public static int WHITE_SPACE_ASC2_CODE = 32;
 
