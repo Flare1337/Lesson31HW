@@ -1,20 +1,22 @@
 import java.util.ArrayList;
 
 public class Encryptor {
-
     public static int WHITE_SPACE_ASC2_CODE = 32;
 
-    public static String encryptText(String someContent) {
+    public static String encryptThis(String text) {
         ArrayList<String> words = new ArrayList<>();
         StringBuilder word = new StringBuilder();
         StringBuilder encryptedText = new StringBuilder();
-        char[] symbols = someContent.toCharArray();
-        for (int counter = 0; counter < (someContent.length() + 1); counter++) {
-            if (someContent.length() != counter && symbols[counter] != WHITE_SPACE_ASC2_CODE) {
+        char[] symbols = text.toCharArray();
+        for (int counter = 0; counter < (text.length() + 1); counter++) {
+            if (text.equals("")) {
+                return "";
+            }
+            if (text.length() != counter && symbols[counter] != WHITE_SPACE_ASC2_CODE) {
                 word.append((symbols[counter]));
             }
             else {
-                if (counter != someContent.length()) {
+                if (counter != text.length()) {
                     word.append(symbols[counter]);
                 }
                 words.add(encryptWord(word.toString()));
