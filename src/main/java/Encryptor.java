@@ -1,6 +1,11 @@
 import java.util.ArrayList;
 
 public class Encryptor {
+    public static void main(String[] args) {
+        String s = Encryptor.encryptText("d");
+        System.out.println(s);
+    }
+
     public static int WHITE_SPACE_ASC2_CODE = 32;
 
     public static String encryptText(String someContent) {
@@ -27,14 +32,16 @@ public class Encryptor {
     }
 
     private static String encryptWord(String word) {
-        char[] chars = word.toCharArray();
+        char[] wordInChars = word.toCharArray();
         char temp = 0;
-        char secondSymbol = chars[1];
-        char lastSymbol = chars[chars.length - 1];
-        if (lastSymbol == WHITE_SPACE_ASC2_CODE) {
-            lastSymbol = chars[chars.length - 2];
+        if (wordInChars.length > 1) {
+            char secondSymbol = wordInChars[1];
+            char lastSymbol = wordInChars[wordInChars.length - 1];
+            if (lastSymbol == WHITE_SPACE_ASC2_CODE) {
+                lastSymbol = wordInChars[wordInChars.length - 2];
+            }
+            wordInChars = replaceSymbols(wordInChars, temp, secondSymbol, lastSymbol);
         }
-        char[] wordInChars = replaceSymbols(chars, temp, secondSymbol, lastSymbol);
         return convertSymbolToASC(String.valueOf(wordInChars));
     }
 
